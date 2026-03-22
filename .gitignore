@@ -1,0 +1,17 @@
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Build output
+dist/
+
+# OS
+.DS_Store
