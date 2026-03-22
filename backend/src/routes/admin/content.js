@@ -47,8 +47,9 @@ router.post('/upload', upload.single('image'), async (req, res) => {
       contentType: req.file.mimetype,
     })
     res.json({ url })
-  } catch {
-    res.status(500).json({ message: 'Server error.' })
+  } catch (err) {
+    console.error('Upload error:', err)
+    res.status(500).json({ message: 'Server error.', detail: err?.message })
   }
 })
 
