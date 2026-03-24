@@ -19,7 +19,7 @@
   }
 
   ::selection {
-    background-color: rgba(109, 179, 109, 0.3);
+    background-color: rgba(212, 106, 106, 0.35);
     color: #E6E6D5;
   }
 
@@ -34,11 +34,11 @@
 
 @layer utilities {
   .celestial-bg {
-    background: radial-gradient(circle at top, #153615 0%, #000000 100%);
+    background: radial-gradient(circle at top, #730303 0%, #000000 100%);
   }
 
   .glow-nebula {
-    background: radial-gradient(circle at top right, #153615 0%, #000000 60%);
+    background: radial-gradient(circle at top right, #730303 0%, #000000 60%);
   }
 
   .glass-card {
