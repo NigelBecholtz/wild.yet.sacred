@@ -12,27 +12,27 @@ export default function HowItWorks() {
   return (
     <div className="bg-surface text-on-surface">
       {/* Hero */}
-      <section className="relative min-h-[700px] flex flex-col justify-center px-8 md:px-24 glow-nebula overflow-hidden">
-        <div className="absolute top-20 right-[15%] w-96 h-96 bg-primary-container/20 rounded-full blur-[120px]" />
+      <section className="relative min-h-[60vh] sm:min-h-[700px] flex flex-col justify-center px-4 sm:px-8 md:px-24 glow-nebula overflow-hidden py-24 sm:py-0">
+        <div className="absolute top-20 right-[5%] sm:right-[15%] w-48 sm:w-96 h-48 sm:h-96 bg-primary-container/20 rounded-full blur-[120px]" />
         <div className="max-w-4xl relative z-10">
           <span className="font-label text-sm uppercase tracking-[0.3em] text-secondary mb-6 block font-light">
             {c('label', t('howItWorks.label'))}
           </span>
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl text-on-surface mb-8 tracking-tighter leading-[1.1]">
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-on-surface mb-6 sm:mb-8 tracking-tighter leading-[1.1]">
             {c('title', t('howItWorks.title')).split('Archival')[0]}
             Archival <span className="italic font-light text-primary-fixed-dim">Readings</span>
           </h1>
-          <p className="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed ml-[10%]">
+          <p className="font-body text-base sm:text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed sm:ml-[10%]">
             {c('subtitle', t('howItWorks.subtitle'))}
           </p>
         </div>
-        <div className="absolute bottom-12 left-8 md:left-24 animate-bounce">
+        <div className="absolute bottom-8 sm:bottom-12 left-4 sm:left-8 md:left-24 animate-bounce">
           <span className="material-symbols-outlined text-secondary opacity-50">arrow_downward</span>
         </div>
       </section>
 
       {/* Steps */}
-      <section className="py-32 px-8 max-w-7xl mx-auto space-y-48">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-20 sm:space-y-36 lg:space-y-48">
         {/* Step I */}
         <div className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-1">
@@ -53,7 +53,7 @@ export default function HowItWorks() {
                 : <span className="material-symbols-outlined text-secondary/20 text-[8rem]">style</span>
               }
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 glass-card-dark rounded-full flex items-center justify-center border border-secondary/20">
+            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-24 h-24 sm:w-32 sm:h-32 glass-card-dark rounded-full flex items-center justify-center border border-secondary/20">
               <span className="material-symbols-outlined text-secondary text-4xl">star</span>
             </div>
           </div>
@@ -128,8 +128,8 @@ export default function HowItWorks() {
       </section>
 
       {/* Inside the Archive */}
-      <section className="py-24 bg-surface-container-lowest">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="py-16 sm:py-24 bg-surface-container-lowest">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2 className="font-headline text-4xl md:text-5xl text-on-surface mb-4">{c('archive_title', t('howItWorks.archiveTitle'))}</h2>
             <p className="text-on-surface-variant font-label text-sm uppercase tracking-widest">{c('archive_subtitle', t('howItWorks.archiveSubtitle'))}</p>
@@ -154,7 +154,7 @@ export default function HowItWorks() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-8 text-center relative overflow-hidden">
+      <section className="py-20 sm:py-32 px-4 sm:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-primary-container/10 -z-10" />
         <div className="max-w-3xl mx-auto">
           <div className="w-16 h-px bg-secondary mx-auto mb-12" />

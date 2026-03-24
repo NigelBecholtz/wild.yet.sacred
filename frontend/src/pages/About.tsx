@@ -12,18 +12,18 @@ export default function About() {
   return (
     <div className="bg-surface text-on-surface">
       {/* Hero */}
-      <section className="relative min-h-[700px] flex items-center glow-nebula overflow-hidden px-8">
-        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+      <section className="relative min-h-[60vh] sm:min-h-[700px] flex items-center glow-nebula overflow-hidden px-4 sm:px-6 lg:px-8 py-20 sm:py-0">
+        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-10 lg:gap-12 items-center">
           <div className="order-2 md:order-1 relative">
-            <div className="absolute -top-10 -left-10 text-secondary/20 font-headline text-8xl select-none font-light">I</div>
+            <div className="absolute -top-6 -left-6 text-secondary/20 font-headline text-6xl sm:text-8xl select-none font-light">I</div>
             <span className="inline-block text-secondary font-label text-sm tracking-[0.3em] uppercase mb-6 font-light">
               {c('label', t('about.label'))}
             </span>
-            <h1 className="text-6xl md:text-8xl font-headline italic tracking-tighter text-on-surface leading-none mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-headline italic tracking-tighter text-on-surface leading-none mb-6 sm:mb-8">
               {c('title', t('about.title'))} <br />
-              <span className="text-primary ml-12 md:ml-24">{c('title_accent', t('about.titleAccent'))}</span>
+              <span className="text-primary ml-6 sm:ml-12 md:ml-24">{c('title_accent', t('about.titleAccent'))}</span>
             </h1>
-            <p className="text-lg md:text-xl text-on-surface-variant max-w-md leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-on-surface-variant max-w-md leading-relaxed">
               {c('subtitle', t('about.subtitle'))}
             </p>
           </div>
@@ -37,8 +37,8 @@ export default function About() {
       </section>
 
       {/* Biography */}
-      <section className="py-32 px-8 bg-surface-container-lowest">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-surface-container-lowest">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 sm:gap-12">
           <div className="md:col-span-4 flex flex-col justify-center">
             <span className="text-secondary font-label text-sm tracking-widest mb-4 font-light">{c('biography_label', t('about.biographyLabel'))}</span>
             <h2 className="text-4xl font-headline text-on-surface mb-8">{c('biography_title', t('about.biographyTitle'))}</h2>
@@ -62,9 +62,9 @@ export default function About() {
       </section>
 
       {/* Philosophy */}
-      <section className="py-32 px-8 bg-surface">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-surface">
         <div className="max-w-7xl mx-auto">
-          <div className="relative p-12 md:p-24 bg-surface-container-highest/60 backdrop-blur-xl rounded-sm border border-outline-variant/10 overflow-hidden flex flex-col md:flex-row gap-12">
+          <div className="relative p-6 sm:p-12 md:p-24 bg-surface-container-highest/60 backdrop-blur-xl rounded-sm border border-outline-variant/10 overflow-hidden flex flex-col md:flex-row gap-8 sm:gap-12">
             <div className="absolute top-0 right-0 p-8 text-secondary/30 hidden md:block">
               <span className="material-symbols-outlined text-8xl">auto_awesome</span>
             </div>
@@ -89,13 +89,13 @@ export default function About() {
       </section>
 
       {/* Methodology */}
-      <section className="py-32 px-8 bg-surface-container-lowest">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-surface-container-lowest">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-6">
-            <h2 className="text-4xl font-headline text-on-surface">{c('credentials_title', t('about.credentialsTitle'))}</h2>
+          <div className="flex flex-col md:flex-row justify-between items-baseline mb-10 sm:mb-16 gap-4 sm:gap-6">
+            <h2 className="text-3xl sm:text-4xl font-headline text-on-surface">{c('credentials_title', t('about.credentialsTitle'))}</h2>
             <span className="text-secondary font-label text-sm tracking-widest uppercase font-light">{c('credentials_label', t('about.credentialsLabel'))}</span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
             {[
               { num: '01.', icon: 'menu_book', title: c('cred1_title', t('about.cred1Title')), body: c('cred1_body', t('about.cred1Body')) },
               { num: '02.', icon: 'description', title: c('cred2_title', t('about.cred2Title')), body: c('cred2_body', t('about.cred2Body')) },
@@ -103,7 +103,7 @@ export default function About() {
             ].map((card) => (
               <div
                 key={card.num}
-                className="bg-surface-container p-10 flex flex-col justify-between aspect-square border border-outline-variant/10 group hover:bg-surface-container-high transition-colors"
+                className="bg-surface-container p-8 sm:p-10 flex flex-col justify-between min-h-[280px] sm:aspect-square border border-outline-variant/10 group hover:bg-surface-container-high transition-colors"
               >
                 <div>
                   <span className="text-secondary text-2xl mb-6 block font-headline font-light">{card.num}</span>
@@ -118,10 +118,10 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-40 px-8 relative overflow-hidden bg-surface-container-lowest">
+      <section className="py-24 sm:py-40 px-4 sm:px-8 relative overflow-hidden bg-surface-container-lowest">
         <div className="absolute inset-0 bg-primary-container/5 -z-10" />
         <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-headline mb-12 italic text-secondary">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-headline mb-8 sm:mb-12 italic text-secondary">
             {c('cta_title', t('about.ctaTitle'))}
           </h2>
           <button

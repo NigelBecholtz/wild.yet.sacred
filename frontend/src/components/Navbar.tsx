@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../contexts/AuthContext'
@@ -10,22 +10,32 @@ export default function Navbar() {
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
+  const navRef = useRef<HTMLDivElement>(null)
+
+  // Close everything on route change
+  useEffect(() => {
+    setMenuOpen(false)
+    setUserMenuOpen(false)
+  }, [location.pathname])
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
+  // Close user dropdown on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setUserMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [])
 
   const isActive = (path: string) => location.pathname === path
-
-  const navLink = (to: string, label: string) => (
-    <Link
-      to={to}
-      className={`font-headline antialiased tracking-tight transition-colors duration-300 ${
-        isActive(to)
-          ? 'text-secondary border-b border-secondary pb-1'
-          : 'text-on-surface/70 hover:text-primary'
-      }`}
-    >
-      {label}
-    </Link>
-  )
-
   const toggleLang = () => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')
 
   const handleLogout = () => {
@@ -34,33 +44,52 @@ export default function Navbar() {
     navigate('/')
   }
 
+  const navLinks = [
+    { to: '/', label: t('nav.home') },
+    { to: '/how-it-works', label: t('nav.howItWorks') },
+    { to: '/about', label: t('nav.about') },
+    { to: '/book', label: t('nav.book') },
+  ]
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-surface-container-high/30 shadow-[0_20px_50px_rgba(75,0,130,0.1)]">
-      <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <nav ref={navRef} className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-surface-container-high/30 shadow-[0_20px_50px_rgba(75,0,130,0.1)]">
+      <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 py-4 max-w-7xl mx-auto">
+
         {/* Brand */}
-        <Link to="/" className="text-2xl font-headline italic text-secondary tracking-tighter font-light">
+        <Link to="/" className="text-xl sm:text-2xl font-headline italic text-secondary tracking-tighter font-light shrink-0">
           wild.yet.sacred
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-8">
-          {navLink('/', t('nav.home'))}
-          {navLink('/how-it-works', t('nav.howItWorks'))}
-          {navLink('/about', t('nav.about'))}
-          {navLink('/book', t('nav.book'))}
+          {navLinks.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className={`font-headline antialiased tracking-tight transition-colors duration-300 ${
+                isActive(to)
+                  ? 'text-secondary border-b border-secondary pb-1'
+                  : 'text-on-surface/70 hover:text-primary'
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-6">
+        {/* Right side */}
+        <div className="flex items-center gap-3 sm:gap-5">
+          {/* Language — desktop only */}
           <button
             onClick={toggleLang}
-            className="text-on-surface/50 text-xs uppercase tracking-widest hover:text-primary transition-colors hidden sm:block"
+            className="hidden sm:block text-on-surface/50 text-xs uppercase tracking-widest hover:text-primary transition-colors"
           >
             {i18n.language === 'en' ? 'ES' : 'EN'}
           </button>
 
+          {/* Auth — desktop only */}
           {isAuthenticated ? (
-            <div className="relative">
+            <div className="relative hidden md:block">
               <button
                 onClick={() => setUserMenuOpen((v) => !v)}
                 className="text-primary font-label text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
@@ -95,7 +124,7 @@ export default function Navbar() {
               )}
             </div>
           ) : (
-            <>
+            <div className="hidden md:flex items-center gap-4">
               <Link
                 to="/login"
                 className="text-on-surface/70 hover:text-primary transition-colors text-sm font-label uppercase tracking-widest"
@@ -104,47 +133,119 @@ export default function Navbar() {
               </Link>
               <Link
                 to="/register"
-                className="bg-secondary text-on-secondary px-6 py-2 rounded-sm text-sm font-label tracking-widest uppercase hover:brightness-110 active:scale-95 transition-all font-medium"
+                className="bg-secondary text-on-secondary px-5 py-2 rounded-sm text-sm font-label tracking-widest uppercase hover:brightness-110 active:scale-95 transition-all font-medium"
               >
                 {t('nav.register')}
               </Link>
-            </>
+            </div>
           )}
 
-          {/* Mobile hamburger */}
+          {/* Animated hamburger button */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden text-on-surface"
-            aria-label="Toggle menu"
+            className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-[5px] text-on-surface"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
           >
-            <span className="material-symbols-outlined text-2xl">{menuOpen ? 'close' : 'menu'}</span>
+            <span
+              className={`block h-px w-5 bg-current transition-all duration-300 ease-in-out origin-center ${
+                menuOpen ? 'rotate-45 translate-y-[6px]' : ''
+              }`}
+            />
+            <span
+              className={`block h-px w-5 bg-current transition-all duration-300 ease-in-out ${
+                menuOpen ? 'opacity-0 scale-x-0' : ''
+              }`}
+            />
+            <span
+              className={`block h-px w-5 bg-current transition-all duration-300 ease-in-out origin-center ${
+                menuOpen ? '-rotate-45 -translate-y-[6px]' : ''
+              }`}
+            />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-surface-container-lowest border-t border-outline-variant/20 px-8 py-6 flex flex-col gap-4">
-          {[
-            ['/', t('nav.home')],
-            ['/how-it-works', t('nav.howItWorks')],
-            ['/about', t('nav.about')],
-            ['/book', t('nav.book')],
-          ].map(([to, label]) => (
+      {/* Mobile menu — animated slide-down */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          menuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="bg-surface/97 backdrop-blur-xl border-t border-outline-variant/20 px-6 py-6 flex flex-col">
+          {/* Nav links */}
+          {navLinks.map(({ to, label }) => (
             <Link
               key={to}
               to={to}
               onClick={() => setMenuOpen(false)}
-              className={`font-headline text-lg ${isActive(to) ? 'text-secondary' : 'text-on-surface/70'}`}
+              className={`font-headline text-lg py-3 border-b border-outline-variant/10 last:border-0 transition-colors ${
+                isActive(to) ? 'text-secondary' : 'text-on-surface/70 active:text-primary'
+              }`}
             >
               {label}
             </Link>
           ))}
-          <button onClick={toggleLang} className="text-left text-on-surface/50 text-xs uppercase tracking-widest">
-            {i18n.language === 'en' ? 'Español' : 'English'}
-          </button>
+
+          {/* Auth section */}
+          <div className="pt-5 flex flex-col gap-3">
+            {isAuthenticated ? (
+              <>
+                <p className="text-primary font-label text-xs tracking-widest uppercase opacity-60">
+                  {user?.name}
+                </p>
+                {user?.isAdmin && (
+                  <Link
+                    to="/admin"
+                    onClick={() => setMenuOpen(false)}
+                    className="font-label text-sm tracking-widest text-secondary uppercase py-1"
+                  >
+                    {t('nav.admin')}
+                  </Link>
+                )}
+                <Link
+                  to="/dashboard"
+                  onClick={() => setMenuOpen(false)}
+                  className="font-label text-sm tracking-widest text-on-surface/70 uppercase py-1"
+                >
+                  {t('nav.dashboard')}
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="text-left font-label text-sm tracking-widest text-error/70 uppercase py-1"
+                >
+                  {t('nav.logout')}
+                </button>
+              </>
+            ) : (
+              <div className="flex items-center gap-4 pt-1">
+                <Link
+                  to="/login"
+                  onClick={() => setMenuOpen(false)}
+                  className="font-label text-sm tracking-widest uppercase text-on-surface/70 hover:text-primary transition-colors"
+                >
+                  {t('nav.login')}
+                </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setMenuOpen(false)}
+                  className="bg-secondary text-on-secondary px-6 py-2 rounded-sm text-sm font-label tracking-widest uppercase hover:brightness-110 transition-all font-medium"
+                >
+                  {t('nav.register')}
+                </Link>
+              </div>
+            )}
+
+            {/* Language toggle */}
+            <button
+              onClick={() => { toggleLang(); setMenuOpen(false) }}
+              className="text-left text-on-surface/40 text-xs uppercase tracking-widest pt-2 hover:text-primary transition-colors"
+            >
+              {i18n.language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
+            </button>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   )
 }
