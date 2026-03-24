@@ -6,8 +6,8 @@ import { getMyBookings, cancelBooking } from '../lib/api'
 import type { Booking } from '../lib/types'
 
 const STATUS_COLORS: Record<string, string> = {
-  pending: 'text-secondary border-secondary/30 bg-secondary/10',
-  confirmed: 'text-primary border-primary/30 bg-primary/10',
+  pending: 'text-on-surface border-secondary/30 bg-secondary/10',
+  confirmed: 'text-on-surface border-primary/30 bg-primary/10',
   completed: 'text-on-surface-variant border-outline-variant/30 bg-surface-container',
   cancelled: 'text-error/70 border-error/20 bg-error/5',
 }
@@ -47,7 +47,7 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <span className="text-secondary font-headline italic text-4xl animate-pulse">✦</span>
+        <span className="text-on-surface font-headline italic text-4xl animate-pulse">✦</span>
       </div>
     )
   }
@@ -57,20 +57,20 @@ export default function Dashboard() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-16">
-          <span className="font-label text-secondary text-xs tracking-[0.3em] uppercase block mb-4">◆ Personal Archive</span>
+          <span className="font-label text-on-surface text-xs tracking-[0.3em] uppercase block mb-4">◆ Personal Archive</span>
           <h1 className="font-headline text-5xl md:text-6xl text-on-surface font-light mb-4">
             {t('dashboard.title')}
           </h1>
           <p className="text-on-surface-variant">
-            {t('dashboard.welcome')} <span className="text-primary">{user?.name}</span>
+            {t('dashboard.welcome')} <span className="text-on-surface">{user?.name}</span>
           </p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-16">
           {[
-            { label: 'Upcoming', count: upcoming.length, color: 'text-primary' },
-            { label: 'Completed', count: bookings.filter(b => b.status === 'completed').length, color: 'text-secondary' },
+            { label: 'Upcoming', count: upcoming.length, color: 'text-on-surface' },
+            { label: 'Completed', count: bookings.filter(b => b.status === 'completed').length, color: 'text-on-surface' },
             { label: 'Total', count: bookings.length, color: 'text-on-surface' },
           ].map((stat) => (
             <div key={stat.label} className="bg-surface-container border border-outline-variant/10 p-6 rounded-lg text-center">

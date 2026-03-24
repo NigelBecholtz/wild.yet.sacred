@@ -6,19 +6,19 @@ import type { Booking } from '../../lib/types'
 const STATUSES = ['all', 'pending', 'confirmed', 'completed', 'cancelled']
 
 const STATUS_COLORS: Record<string, string> = {
-  pending: 'text-secondary border-secondary/30 bg-secondary/10',
-  confirmed: 'text-primary border-primary/30 bg-primary/10',
+  pending: 'text-on-surface border-secondary/30 bg-secondary/10',
+  confirmed: 'text-on-surface border-primary/30 bg-primary/10',
   completed: 'text-on-surface-variant border-outline-variant/30 bg-surface-container',
   cancelled: 'text-error/70 border-error/20 bg-error/5',
 }
 
 const NEXT_ACTIONS: Record<string, { label: string; status: string; color: string }[]> = {
   pending: [
-    { label: 'Confirm', status: 'confirmed', color: 'bg-primary/20 text-primary hover:bg-primary/30' },
+    { label: 'Confirm', status: 'confirmed', color: 'bg-primary/20 text-on-surface hover:bg-primary/30' },
     { label: 'Cancel', status: 'cancelled', color: 'bg-error/10 text-error/70 hover:bg-error/20' },
   ],
   confirmed: [
-    { label: 'Complete', status: 'completed', color: 'bg-secondary/20 text-secondary hover:bg-secondary/30' },
+    { label: 'Complete', status: 'completed', color: 'bg-secondary/20 text-on-surface hover:bg-secondary/30' },
     { label: 'Cancel', status: 'cancelled', color: 'bg-error/10 text-error/70 hover:bg-error/20' },
   ],
   completed: [],
@@ -55,7 +55,7 @@ export default function AdminBookings() {
   return (
     <div className="max-w-7xl mx-auto px-8 py-16">
       <div className="mb-12">
-        <span className="font-label text-secondary text-xs tracking-[0.3em] uppercase block mb-4">◆ Session Registry</span>
+        <span className="font-label text-on-surface text-xs tracking-[0.3em] uppercase block mb-4">◆ Session Registry</span>
         <h1 className="font-headline text-5xl text-on-surface font-light">Bookings</h1>
       </div>
 
@@ -78,7 +78,7 @@ export default function AdminBookings() {
 
       {loading ? (
         <div className="flex justify-center py-16">
-          <span className="text-secondary font-headline italic text-4xl animate-pulse">✦</span>
+          <span className="text-on-surface font-headline italic text-4xl animate-pulse">✦</span>
         </div>
       ) : bookings.length === 0 ? (
         <p className="text-on-surface-variant italic font-headline text-xl">No bookings found.</p>

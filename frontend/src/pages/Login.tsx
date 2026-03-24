@@ -32,7 +32,7 @@ export default function Login() {
       <div className="w-full max-w-md relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <Link to="/" className="text-3xl font-headline italic text-secondary tracking-tighter block mb-8">
+          <Link to="/" className="text-3xl font-headline italic text-on-surface tracking-tighter block mb-8">
             wild.yet.sacred
           </Link>
           <div className="w-12 h-px bg-secondary/40 mx-auto mb-8" />
@@ -42,7 +42,7 @@ export default function Login() {
 
         <form onSubmit={handleSubmit} className="space-y-8">
           <div>
-            <label className="block font-headline text-secondary text-xs uppercase tracking-widest mb-2">
+            <label className="block font-headline text-on-surface text-xs uppercase tracking-widest mb-2">
               {t('auth.email')}
             </label>
             <input
@@ -56,7 +56,7 @@ export default function Login() {
             />
           </div>
           <div>
-            <label className="block font-headline text-secondary text-xs uppercase tracking-widest mb-2">
+            <label className="block font-headline text-on-surface text-xs uppercase tracking-widest mb-2">
               {t('auth.password')}
             </label>
             <input
@@ -85,7 +85,7 @@ export default function Login() {
 
         <p className="text-center mt-8 text-on-surface-variant text-sm">
           {t('auth.noAccount')}{' '}
-          <Link to="/register" className="text-primary hover:text-secondary transition-colors">
+          <Link to="/register" className="font-medium text-on-surface underline underline-offset-2 hover:opacity-90 transition-opacity">
             {t('auth.signUp')}
           </Link>
         </p>

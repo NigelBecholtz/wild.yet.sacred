@@ -109,7 +109,7 @@ export default function AdminContent() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <span className="text-secondary font-headline italic text-4xl animate-pulse">✦</span>
+        <span className="text-on-surface font-headline italic text-4xl animate-pulse">✦</span>
       </div>
     )
   }
@@ -119,14 +119,14 @@ export default function AdminContent() {
       {/* Header */}
       <div className="mb-12 flex items-start justify-between gap-6">
         <div>
-          <span className="font-label text-secondary text-xs tracking-[0.3em] uppercase block mb-4">◆ Editorial Control</span>
+          <span className="font-label text-on-surface text-xs tracking-[0.3em] uppercase block mb-4">◆ Editorial Control</span>
           <h1 className="font-headline text-5xl text-on-surface font-light">Content</h1>
         </div>
         <button
           onClick={handleSave}
           disabled={saving || Object.keys(edits).length === 0}
           className={`px-8 py-3 rounded-sm font-label text-xs uppercase tracking-widest transition-all disabled:opacity-50 ${
-            saved ? 'bg-primary/20 text-primary' : 'bg-secondary text-on-secondary hover:brightness-110'
+            saved ? 'bg-primary/20 text-on-surface' : 'bg-secondary text-on-secondary hover:brightness-110'
           }`}
         >
           {saving ? '✦' : saved ? 'Saved ✓' : `Save Changes${Object.keys(edits).length > 0 ? ` (${Object.keys(edits).length})` : ''}`}
@@ -150,7 +150,7 @@ export default function AdminContent() {
                   }`}
                 >
                   <span>{page}</span>
-                  <span className={`float-right opacity-60 ${activePage === page ? 'text-on-secondary' : 'text-secondary'}`}>
+                  <span className={`float-right opacity-60 ${activePage === page ? 'text-on-secondary' : 'text-on-surface'}`}>
                     {count}
                   </span>
                 </button>
@@ -175,8 +175,8 @@ export default function AdminContent() {
               return (
                 <div key={key} className="bg-surface-container border border-outline-variant/10 rounded-lg p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="font-label text-xs uppercase tracking-widest text-secondary">{key}</span>
-                    <span className="text-xs px-2 py-0.5 rounded-sm font-label uppercase tracking-widest bg-tertiary/10 text-tertiary border border-tertiary/20">
+                    <span className="font-label text-xs uppercase tracking-widest text-on-surface">{key}</span>
+                    <span className="text-xs px-2 py-0.5 rounded-sm font-label uppercase tracking-widest bg-surface-container-high text-on-surface border border-outline-variant/30">
                       Image
                     </span>
                   </div>
@@ -203,7 +203,7 @@ export default function AdminContent() {
                       <label className={`inline-flex items-center gap-2 cursor-pointer text-xs font-label uppercase tracking-widest border px-4 py-2 rounded-sm transition-colors ${
                         uploading === key
                           ? 'text-outline border-outline/30 opacity-50'
-                          : 'text-secondary border-secondary/30 hover:bg-secondary/10'
+                          : 'text-on-surface border-secondary/30 hover:bg-secondary/10'
                       }`}>
                         <span className="material-symbols-outlined text-sm">upload</span>
                         {uploading === key ? 'Uploading...' : 'Upload Image'}
@@ -232,7 +232,7 @@ export default function AdminContent() {
               <div key={key} className="bg-surface-container border border-outline-variant/10 rounded-lg overflow-hidden">
                 {/* Key label */}
                 <div className="px-6 pt-4 pb-2">
-                  <span className="font-label text-xs uppercase tracking-widest text-secondary">{key}</span>
+                  <span className="font-label text-xs uppercase tracking-widest text-on-surface">{key}</span>
                 </div>
 
                 {/* EN + ES columns */}
@@ -240,7 +240,7 @@ export default function AdminContent() {
                   {/* EN */}
                   <div className="px-6 pb-5">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-label uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-sm">EN</span>
+                      <span className="text-xs font-label uppercase tracking-widest text-on-surface bg-primary/10 px-2 py-0.5 rounded-sm">EN</span>
                     </div>
                     {enItem ? (
                       isLong ? (
@@ -266,7 +266,7 @@ export default function AdminContent() {
                   {/* ES */}
                   <div className="px-6 pb-5">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-label uppercase tracking-widest text-secondary bg-secondary/10 px-2 py-0.5 rounded-sm">ES</span>
+                      <span className="text-xs font-label uppercase tracking-widest text-on-surface bg-secondary/10 px-2 py-0.5 rounded-sm">ES</span>
                     </div>
                     {esItem ? (
                       isLong ? (

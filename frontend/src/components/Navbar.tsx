@@ -56,7 +56,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 py-4 max-w-7xl mx-auto">
 
         {/* Brand */}
-        <Link to="/" className="text-xl sm:text-2xl font-headline italic text-secondary tracking-tighter font-light shrink-0">
+        <Link to="/" className="text-xl sm:text-2xl font-headline italic text-on-surface tracking-tighter font-light shrink-0">
           wild.yet.sacred
         </Link>
 
@@ -68,8 +68,8 @@ export default function Navbar() {
               to={to}
               className={`font-headline antialiased tracking-tight transition-colors duration-300 ${
                 isActive(to)
-                  ? 'text-secondary border-b border-secondary pb-1'
-                  : 'text-on-surface/70 hover:text-primary'
+                  ? 'text-on-surface border-b border-secondary pb-1'
+                  : 'text-on-surface/70 hover:text-on-surface'
               }`}
             >
               {label}
@@ -82,7 +82,7 @@ export default function Navbar() {
           {/* Language — desktop only */}
           <button
             onClick={toggleLang}
-            className="hidden sm:block text-on-surface/50 text-xs uppercase tracking-widest hover:text-primary transition-colors"
+            className="hidden sm:block text-on-surface/50 text-xs uppercase tracking-widest hover:text-on-surface transition-colors"
           >
             {i18n.language === 'en' ? 'ES' : 'EN'}
           </button>
@@ -92,7 +92,7 @@ export default function Navbar() {
             <div className="relative hidden md:block">
               <button
                 onClick={() => setUserMenuOpen((v) => !v)}
-                className="text-primary font-label text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+                className="text-on-surface font-label text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
               >
                 {user?.name?.split(' ')[0]} ▾
               </button>
@@ -102,7 +102,7 @@ export default function Navbar() {
                     <Link
                       to="/admin"
                       onClick={() => setUserMenuOpen(false)}
-                      className="block px-4 py-3 text-sm font-label tracking-widest text-secondary uppercase hover:bg-surface-container-highest transition-colors"
+                      className="block px-4 py-3 text-sm font-label tracking-widest text-on-surface uppercase hover:bg-surface-container-highest transition-colors"
                     >
                       {t('nav.admin')}
                     </Link>
@@ -127,7 +127,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-4">
               <Link
                 to="/login"
-                className="text-on-surface/70 hover:text-primary transition-colors text-sm font-label uppercase tracking-widest"
+                className="text-on-surface/70 hover:text-on-surface transition-colors text-sm font-label uppercase tracking-widest"
               >
                 {t('nav.login')}
               </Link>
@@ -180,7 +180,7 @@ export default function Navbar() {
               to={to}
               onClick={() => setMenuOpen(false)}
               className={`font-headline text-lg py-3 border-b border-outline-variant/10 last:border-0 transition-colors ${
-                isActive(to) ? 'text-secondary' : 'text-on-surface/70 active:text-primary'
+                isActive(to) ? 'text-on-surface' : 'text-on-surface/70 active:text-on-surface'
               }`}
             >
               {label}
@@ -191,14 +191,14 @@ export default function Navbar() {
           <div className="pt-6 mt-2 border-t border-outline-variant/20 flex flex-col gap-3">
             {isAuthenticated ? (
               <>
-                <p className="text-primary font-label text-xs tracking-widest uppercase opacity-60 pb-1">
+                <p className="text-on-surface font-label text-xs tracking-widest uppercase opacity-60 pb-1">
                   {user?.name}
                 </p>
                 {user?.isAdmin && (
                   <Link
                     to="/admin"
                     onClick={() => setMenuOpen(false)}
-                    className="font-label text-sm tracking-widest text-secondary uppercase py-2"
+                    className="font-label text-sm tracking-widest text-on-surface uppercase py-2"
                   >
                     {t('nav.admin')}
                   </Link>
@@ -229,7 +229,7 @@ export default function Navbar() {
                 <Link
                   to="/login"
                   onClick={() => setMenuOpen(false)}
-                  className="w-full text-center border border-outline-variant/30 text-on-surface/70 py-3 rounded-sm text-sm font-label tracking-widest uppercase hover:text-primary hover:border-primary/40 transition-colors"
+                  className="w-full text-center border border-outline-variant/30 text-on-surface/70 py-3 rounded-sm text-sm font-label tracking-widest uppercase hover:text-on-surface hover:border-primary/40 transition-colors"
                 >
                   {t('nav.login')}
                 </Link>
@@ -239,7 +239,7 @@ export default function Navbar() {
             {/* Language toggle */}
             <button
               onClick={() => { toggleLang(); setMenuOpen(false) }}
-              className="text-left text-on-surface/40 text-xs uppercase tracking-widest pt-2 hover:text-primary transition-colors"
+              className="text-left text-on-surface/40 text-xs uppercase tracking-widest pt-2 hover:text-on-surface transition-colors"
             >
               {i18n.language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
             </button>

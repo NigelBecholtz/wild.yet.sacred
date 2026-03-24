@@ -16,22 +16,22 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <span className="text-secondary font-headline italic text-4xl animate-pulse">✦</span>
+        <span className="text-on-surface font-headline italic text-4xl animate-pulse">✦</span>
       </div>
     )
   }
 
   const statCards = [
-    { label: 'Pending', value: stats?.pending ?? 0, color: 'text-secondary', icon: 'pending' },
-    { label: 'Confirmed', value: stats?.confirmed ?? 0, color: 'text-primary', icon: 'check_circle' },
-    { label: 'Today', value: stats?.today ?? 0, color: 'text-tertiary', icon: 'today' },
+    { label: 'Pending', value: stats?.pending ?? 0, color: 'text-on-surface', icon: 'pending' },
+    { label: 'Confirmed', value: stats?.confirmed ?? 0, color: 'text-on-surface', icon: 'check_circle' },
+    { label: 'Today', value: stats?.today ?? 0, color: 'text-on-surface', icon: 'today' },
     { label: 'Total', value: stats?.total ?? 0, color: 'text-on-surface', icon: 'bar_chart' },
   ]
 
   return (
     <div className="max-w-7xl mx-auto px-8 py-16">
       <div className="mb-12">
-        <span className="font-label text-secondary text-xs tracking-[0.3em] uppercase block mb-4">◆ Command Center</span>
+        <span className="font-label text-on-surface text-xs tracking-[0.3em] uppercase block mb-4">◆ Command Center</span>
         <h1 className="font-headline text-5xl text-on-surface font-light">The Archive</h1>
       </div>
 
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
               to={action.to}
               className="group p-8 bg-surface-container border border-outline-variant/10 rounded-lg hover:border-secondary/40 transition-all"
             >
-              <span className="material-symbols-outlined text-secondary mb-4 block text-2xl">{action.icon}</span>
+              <span className="material-symbols-outlined text-on-surface mb-4 block text-2xl">{action.icon}</span>
               <h3 className="font-headline text-lg text-on-surface mb-2">{action.label}</h3>
               <p className="text-on-surface-variant text-sm">{action.desc}</p>
             </Link>

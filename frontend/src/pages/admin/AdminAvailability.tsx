@@ -72,7 +72,7 @@ export default function AdminAvailability() {
   return (
     <div className="max-w-7xl mx-auto px-8 py-16">
       <div className="mb-12">
-        <span className="font-label text-secondary text-xs tracking-[0.3em] uppercase block mb-4">◆ Celestial Calendar</span>
+        <span className="font-label text-on-surface text-xs tracking-[0.3em] uppercase block mb-4">◆ Celestial Calendar</span>
         <h1 className="font-headline text-5xl text-on-surface font-light">Availability</h1>
       </div>
 
@@ -81,15 +81,15 @@ export default function AdminAvailability() {
         <h2 className="font-headline text-2xl text-on-surface mb-8">Add Time Slot</h2>
         <form onSubmit={handleCreate} className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
           <div>
-            <label className="block font-headline text-secondary text-xs uppercase tracking-widest mb-2">Date</label>
+            <label className="block font-headline text-on-surface text-xs uppercase tracking-widest mb-2">Date</label>
             <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className={inputClass} />
           </div>
           <div>
-            <label className="block font-headline text-secondary text-xs uppercase tracking-widest mb-2">Start Time</label>
+            <label className="block font-headline text-on-surface text-xs uppercase tracking-widest mb-2">Start Time</label>
             <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className={inputClass} />
           </div>
           <div>
-            <label className="block font-headline text-secondary text-xs uppercase tracking-widest mb-2">End Time</label>
+            <label className="block font-headline text-on-surface text-xs uppercase tracking-widest mb-2">End Time</label>
             <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className={inputClass} />
           </div>
           <button
@@ -106,7 +106,7 @@ export default function AdminAvailability() {
       {/* Slots list */}
       {loading ? (
         <div className="flex justify-center py-16">
-          <span className="text-secondary font-headline italic text-4xl animate-pulse">✦</span>
+          <span className="text-on-surface font-headline italic text-4xl animate-pulse">✦</span>
         </div>
       ) : sortedDates.length === 0 ? (
         <p className="text-on-surface-variant italic font-headline text-xl">No availability slots yet.</p>
@@ -114,7 +114,7 @@ export default function AdminAvailability() {
         <div className="space-y-8">
           {sortedDates.map((d) => (
             <div key={d}>
-              <h3 className="font-headline text-xl text-secondary mb-4 pb-2 border-b border-outline-variant/20">
+              <h3 className="font-headline text-xl text-on-surface mb-4 pb-2 border-b border-outline-variant/20">
                 {formatDate(d)}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -132,7 +132,7 @@ export default function AdminAvailability() {
                       <div>
                         <p className="font-headline text-on-surface">{slot.startTime} – {slot.endTime}</p>
                         {activeBooking ? (
-                          <p className="text-primary text-xs mt-1 font-label uppercase tracking-widest">
+                          <p className="text-on-surface text-xs mt-1 font-label uppercase tracking-widest">
                             {activeBooking.clientName}
                           </p>
                         ) : (

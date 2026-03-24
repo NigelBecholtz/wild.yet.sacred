@@ -13,7 +13,7 @@ export default function AdminLayout() {
       {/* Admin nav bar */}
       <div className="bg-surface-container border-b border-outline-variant/20 px-8 py-4">
         <div className="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto">
-          <span className="font-label text-xs uppercase tracking-widest text-secondary mr-6 whitespace-nowrap">Admin Archive</span>
+          <span className="font-label text-xs uppercase tracking-widest text-on-surface mr-6 whitespace-nowrap">Admin Archive</span>
           {NAV.map((item) => (
             <NavLink
               key={item.to}
