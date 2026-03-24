@@ -71,7 +71,7 @@ export default function Home() {
               key={i}
               className={`p-10 border border-outline-variant/10 rounded-lg group transition-all duration-500 ${
                 card.elevated
-                  ? 'bg-surface-container shadow-[0_20px_50px_rgba(75,0,130,0.15)]'
+                  ? 'bg-surface-container shadow-[0_20px_50px_rgba(59,12,12,0.2)]'
                   : 'hover:bg-surface-container-high'
               }`}
             >
@@ -197,7 +197,7 @@ export default function Home() {
           </h2>
           <button
             onClick={() => navigate('/book')}
-            className="bg-secondary text-on-secondary px-12 py-5 rounded-sm font-label tracking-[0.2em] uppercase text-lg hover:scale-105 transition-all shadow-[0_10px_30px_rgba(201,168,76,0.2)] font-medium"
+            className="bg-secondary text-on-secondary px-12 py-5 rounded-sm font-label tracking-[0.2em] uppercase text-lg hover:scale-105 transition-all shadow-[0_10px_30px_rgba(115,3,3,0.25)] font-medium"
           >
             {c('schedule_btn', t('home.scheduleBtn'))}
           </button>

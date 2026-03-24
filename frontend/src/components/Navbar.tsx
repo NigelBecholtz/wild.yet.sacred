@@ -52,7 +52,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav ref={navRef} className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-surface-container-high/30 shadow-[0_20px_50px_rgba(75,0,130,0.1)]">
+    <nav ref={navRef} className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-surface-container-high/30 shadow-[0_20px_50px_rgba(59,12,12,0.15)]">
       <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 py-4 max-w-7xl mx-auto">
 
         {/* Brand */}
@@ -97,7 +97,7 @@ export default function Navbar() {
                 {user?.name?.split(' ')[0]} ▾
               </button>
               {userMenuOpen && (
-                <div className="absolute right-0 top-full mt-2 w-48 bg-surface-container-high border border-outline-variant/20 rounded-lg shadow-[0_20px_50px_rgba(75,0,130,0.3)] z-50">
+                <div className="absolute right-0 top-full mt-2 w-48 bg-surface-container-high border border-outline-variant/20 rounded-lg shadow-[0_20px_50px_rgba(59,12,12,0.35)] z-50">
                   {user?.isAdmin && (
                     <Link
                       to="/admin"

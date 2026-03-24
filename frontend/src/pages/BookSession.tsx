@@ -296,7 +296,7 @@ export default function BookSession() {
                 <button
                   type="submit"
                   disabled={loading || !isAuthenticated}
-                  className="bg-secondary text-on-secondary px-12 py-5 rounded-sm font-headline text-xl italic tracking-tight hover:scale-95 hover:shadow-[0_0_30px_rgba(201,168,76,0.3)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-secondary text-on-secondary px-12 py-5 rounded-sm font-headline text-xl italic tracking-tight hover:scale-95 hover:shadow-[0_0_30px_rgba(115,3,3,0.35)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? '✦' : c('submit_btn', t('book.submit'))}
                 </button>

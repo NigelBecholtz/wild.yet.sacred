@@ -126,7 +126,7 @@ export default function About() {
           </h2>
           <button
             onClick={() => navigate('/book')}
-            className="border border-secondary text-secondary px-12 py-5 text-sm font-label tracking-[0.2em] uppercase rounded-sm hover:bg-secondary hover:text-on-secondary transition-all duration-300 shadow-[0_20px_50px_rgba(75,0,130,0.15)] font-light"
+            className="border border-secondary text-secondary px-12 py-5 text-sm font-label tracking-[0.2em] uppercase rounded-sm hover:bg-secondary hover:text-on-secondary transition-all duration-300 shadow-[0_20px_50px_rgba(59,12,12,0.2)] font-light"
           >
             {c('cta_btn', t('about.ctaBtn'))}
           </button>

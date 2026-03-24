@@ -5,7 +5,7 @@ export default function Footer() {
   const { t } = useTranslation()
 
   return (
-    <footer className="w-full bg-surface-container-lowest border-t border-primary-container/10 py-16 shadow-[0_-20px_50px_rgba(75,0,130,0.1)]">
+    <footer className="w-full bg-surface-container-lowest border-t border-primary-container/10 py-16 shadow-[0_-20px_50px_rgba(59,12,12,0.15)]">
       <div className="w-full flex flex-col items-center text-center space-y-8 px-4">
         <div className="text-3xl font-headline italic text-secondary tracking-tighter">
           {t('footer.brand')}

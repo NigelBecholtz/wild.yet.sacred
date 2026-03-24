@@ -70,7 +70,7 @@ export default function HowItWorks() {
             </div>
             {!cms.step2_image && (
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center border border-primary/40 shadow-[0_0_30px_rgba(186,126,244,0.4)]">
+                <div className="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center border border-primary/40 shadow-[0_0_30px_rgba(115,3,3,0.45)]">
                   <span className="material-symbols-outlined text-primary text-3xl">videocam</span>
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function HowItWorks() {
           <p className="text-on-surface-variant text-lg mb-12 leading-relaxed">{c('cta_body', t('howItWorks.ctaBody'))}</p>
           <button
             onClick={() => navigate('/book')}
-            className="bg-secondary text-on-secondary px-10 py-5 rounded-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-[0_10px_30px_rgba(201,168,76,0.2)] font-medium"
+            className="bg-secondary text-on-secondary px-10 py-5 rounded-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-[0_10px_30px_rgba(115,3,3,0.25)] font-medium"
           >
             {c('cta_btn', t('howItWorks.ctaBtn'))}
           </button>
