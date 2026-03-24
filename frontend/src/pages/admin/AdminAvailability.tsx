@@ -125,7 +125,7 @@ export default function AdminAvailability() {
                       key={slot.id}
                       className={`p-4 rounded-lg border flex items-center justify-between ${
                         activeBooking
-                          ? 'bg-primary-container/10 border-primary/20'
+                          ? 'bg-secondary-container/10 border-secondary-container/25'
                           : 'bg-surface-container border-outline-variant/10'
                       }`}
                     >

@@ -126,7 +126,7 @@ export default function AdminContent() {
           onClick={handleSave}
           disabled={saving || Object.keys(edits).length === 0}
           className={`px-8 py-3 rounded-sm font-label text-xs uppercase tracking-widest transition-all disabled:opacity-50 ${
-            saved ? 'bg-primary/20 text-on-surface' : 'bg-secondary text-on-secondary hover:brightness-110'
+            saved ? 'bg-secondary-container/20 text-on-surface' : 'bg-secondary text-on-secondary hover:brightness-110'
           }`}
         >
           {saving ? '✦' : saved ? 'Saved ✓' : `Save Changes${Object.keys(edits).length > 0 ? ` (${Object.keys(edits).length})` : ''}`}
@@ -176,7 +176,7 @@ export default function AdminContent() {
                 <div key={key} className="bg-surface-container border border-outline-variant/10 rounded-lg p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="font-label text-xs uppercase tracking-widest text-on-surface">{key}</span>
-                    <span className="text-xs px-2 py-0.5 rounded-sm font-label uppercase tracking-widest bg-surface-container-high text-on-surface border border-outline-variant/30">
+                    <span className="text-xs px-2 py-0.5 rounded-sm font-label uppercase tracking-widest bg-tertiary/10 text-tertiary border border-tertiary/20">
                       Image
                     </span>
                   </div>
@@ -240,7 +240,7 @@ export default function AdminContent() {
                   {/* EN */}
                   <div className="px-6 pb-5">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-label uppercase tracking-widest text-on-surface bg-primary/10 px-2 py-0.5 rounded-sm">EN</span>
+                      <span className="text-xs font-label uppercase tracking-widest text-on-surface bg-secondary-container/15 px-2 py-0.5 rounded-sm">EN</span>
                     </div>
                     {enItem ? (
                       isLong ? (
@@ -248,14 +248,14 @@ export default function AdminContent() {
                           value={getValue(enItem)}
                           onChange={(e) => handleEdit(enItem, e.target.value)}
                           rows={4}
-                          className="w-full bg-transparent border-b border-outline-variant focus:border-primary py-2 text-on-surface text-sm outline-none transition-colors resize-none"
+                          className="w-full bg-transparent border-b border-outline-variant focus:border-secondary-container py-2 text-on-surface text-sm outline-none transition-colors resize-none"
                         />
                       ) : (
                         <input
                           type="text"
                           value={getValue(enItem)}
                           onChange={(e) => handleEdit(enItem, e.target.value)}
-                          className="w-full bg-transparent border-b border-outline-variant focus:border-primary py-2 text-on-surface text-sm outline-none transition-colors"
+                          className="w-full bg-transparent border-b border-outline-variant focus:border-secondary-container py-2 text-on-surface text-sm outline-none transition-colors"
                         />
                       )
                     ) : (

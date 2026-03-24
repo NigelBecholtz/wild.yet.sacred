@@ -24,7 +24,7 @@ export default function AdminDashboard() {
   const statCards = [
     { label: 'Pending', value: stats?.pending ?? 0, color: 'text-on-surface', icon: 'pending' },
     { label: 'Confirmed', value: stats?.confirmed ?? 0, color: 'text-on-surface', icon: 'check_circle' },
-    { label: 'Today', value: stats?.today ?? 0, color: 'text-on-surface', icon: 'today' },
+    { label: 'Today', value: stats?.today ?? 0, color: 'text-tertiary', icon: 'today' },
     { label: 'Total', value: stats?.total ?? 0, color: 'text-on-surface', icon: 'bar_chart' },
   ]
 

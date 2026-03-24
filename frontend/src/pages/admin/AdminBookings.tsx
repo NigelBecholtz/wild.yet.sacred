@@ -7,14 +7,14 @@ const STATUSES = ['all', 'pending', 'confirmed', 'completed', 'cancelled']
 
 const STATUS_COLORS: Record<string, string> = {
   pending: 'text-on-surface border-secondary/30 bg-secondary/10',
-  confirmed: 'text-on-surface border-primary/30 bg-primary/10',
+  confirmed: 'text-on-surface border-secondary-container/30 bg-secondary-container/10',
   completed: 'text-on-surface-variant border-outline-variant/30 bg-surface-container',
   cancelled: 'text-error/70 border-error/20 bg-error/5',
 }
 
 const NEXT_ACTIONS: Record<string, { label: string; status: string; color: string }[]> = {
   pending: [
-    { label: 'Confirm', status: 'confirmed', color: 'bg-primary/20 text-on-surface hover:bg-primary/30' },
+    { label: 'Confirm', status: 'confirmed', color: 'bg-secondary-container/20 text-on-surface hover:bg-secondary-container/30' },
     { label: 'Cancel', status: 'cancelled', color: 'bg-error/10 text-error/70 hover:bg-error/20' },
   ],
   confirmed: [

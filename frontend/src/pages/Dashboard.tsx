@@ -7,7 +7,7 @@ import type { Booking } from '../lib/types'
 
 const STATUS_COLORS: Record<string, string> = {
   pending: 'text-on-surface border-secondary/30 bg-secondary/10',
-  confirmed: 'text-on-surface border-primary/30 bg-primary/10',
+  confirmed: 'text-on-surface border-secondary-container/30 bg-secondary-container/10',
   completed: 'text-on-surface-variant border-outline-variant/30 bg-surface-container',
   cancelled: 'text-error/70 border-error/20 bg-error/5',
 }

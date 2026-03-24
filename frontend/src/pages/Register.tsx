@@ -33,7 +33,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen celestial-bg flex items-center justify-center px-6 py-16">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-12">
           <Link to="/" className="text-3xl font-headline italic text-on-surface tracking-tighter block mb-8">
@@ -55,7 +55,7 @@ export default function Register() {
               onChange={(e) => setName(e.target.value)}
               required
               autoComplete="name"
-              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
+              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary-container py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
               placeholder="Astrid Voyager"
             />
           </div>
@@ -69,7 +69,7 @@ export default function Register() {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
+              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary-container py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
               placeholder="astral@archives.com"
             />
           </div>
@@ -83,7 +83,7 @@ export default function Register() {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="new-password"
-              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
+              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary-container py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
               placeholder="••••••••"
             />
           </div>
@@ -97,7 +97,7 @@ export default function Register() {
               onChange={(e) => setConfirm(e.target.value)}
               required
               autoComplete="new-password"
-              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
+              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary-container py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
               placeholder="••••••••"
             />
           </div>

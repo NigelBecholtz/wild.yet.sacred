@@ -28,14 +28,14 @@ export default function Login() {
 
   return (
     <div className="min-h-screen celestial-bg flex items-center justify-center px-6">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="w-full max-w-md relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <Link to="/" className="text-3xl font-headline italic text-on-surface tracking-tighter block mb-8">
             wild.yet.sacred
           </Link>
-          <div className="w-12 h-px bg-secondary/40 mx-auto mb-8" />
+          <div className="w-12 h-px bg-secondary-container/40 mx-auto mb-8" />
           <h1 className="font-headline text-4xl text-on-surface mb-3">{t('auth.loginTitle')}</h1>
           <p className="text-on-surface-variant font-light">{t('auth.loginSubtitle')}</p>
         </div>
@@ -51,8 +51,8 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
-              placeholder="astral@archives.com"
+              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary-container py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
+              placeholder="your@email.com"
             />
           </div>
           <div>
@@ -65,7 +65,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="current-password"
-              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
+              className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary-container py-4 text-on-surface placeholder:text-outline/40 outline-none transition-colors"
               placeholder="••••••••"
             />
           </div>
