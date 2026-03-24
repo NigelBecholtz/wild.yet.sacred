@@ -188,17 +188,17 @@ export default function Navbar() {
           ))}
 
           {/* Auth section */}
-          <div className="pt-5 flex flex-col gap-3">
+          <div className="pt-6 mt-2 border-t border-outline-variant/20 flex flex-col gap-3">
             {isAuthenticated ? (
               <>
-                <p className="text-primary font-label text-xs tracking-widest uppercase opacity-60">
+                <p className="text-primary font-label text-xs tracking-widest uppercase opacity-60 pb-1">
                   {user?.name}
                 </p>
                 {user?.isAdmin && (
                   <Link
                     to="/admin"
                     onClick={() => setMenuOpen(false)}
-                    className="font-label text-sm tracking-widest text-secondary uppercase py-1"
+                    className="font-label text-sm tracking-widest text-secondary uppercase py-2"
                   >
                     {t('nav.admin')}
                   </Link>
@@ -206,32 +206,32 @@ export default function Navbar() {
                 <Link
                   to="/dashboard"
                   onClick={() => setMenuOpen(false)}
-                  className="font-label text-sm tracking-widest text-on-surface/70 uppercase py-1"
+                  className="font-label text-sm tracking-widest text-on-surface/70 uppercase py-2"
                 >
                   {t('nav.dashboard')}
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="text-left font-label text-sm tracking-widest text-error/70 uppercase py-1"
+                  className="text-left font-label text-sm tracking-widest text-error/70 uppercase py-2"
                 >
                   {t('nav.logout')}
                 </button>
               </>
             ) : (
-              <div className="flex items-center gap-4 pt-1">
-                <Link
-                  to="/login"
-                  onClick={() => setMenuOpen(false)}
-                  className="font-label text-sm tracking-widest uppercase text-on-surface/70 hover:text-primary transition-colors"
-                >
-                  {t('nav.login')}
-                </Link>
+              <div className="flex flex-col gap-3">
                 <Link
                   to="/register"
                   onClick={() => setMenuOpen(false)}
-                  className="bg-secondary text-on-secondary px-6 py-2 rounded-sm text-sm font-label tracking-widest uppercase hover:brightness-110 transition-all font-medium"
+                  className="w-full text-center bg-secondary text-on-secondary py-3 rounded-sm text-sm font-label tracking-widest uppercase hover:brightness-110 active:scale-95 transition-all font-medium"
                 >
                   {t('nav.register')}
+                </Link>
+                <Link
+                  to="/login"
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full text-center border border-outline-variant/30 text-on-surface/70 py-3 rounded-sm text-sm font-label tracking-widest uppercase hover:text-primary hover:border-primary/40 transition-colors"
+                >
+                  {t('nav.login')}
                 </Link>
               </div>
             )}
