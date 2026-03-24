@@ -11,7 +11,7 @@ interface ContentItem {
 
 type GroupedKey = Record<string, ContentItem>
 
-const PAGES = ['home', 'howItWorks', 'about', 'nav', 'footer']
+const PAGES = ['home', 'howItWorks', 'about', 'book', 'nav', 'footer']
 
 const isImageKey = (key: string) =>
   key.includes('image') || key.includes('img') || key.includes('photo')
