@@ -1,7 +1,7 @@
 {
   "version": 2,
   "installCommand": "npm install && npm install --prefix backend && npm install --prefix frontend",
-  "buildCommand": "cd backend && npx prisma generate && npx prisma db push --accept-data-loss && node prisma/seed.js && cd .. && npm run build --prefix frontend",
+  "buildCommand": "cd backend && npx prisma generate && npx prisma db push --accept-data-loss && cd .. && npm run build --prefix frontend",
   "outputDirectory": "frontend/dist",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index" },
